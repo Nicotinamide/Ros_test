@@ -1,0 +1,8 @@
+prefix=/home/liyike/catkin_ws/devel
+
+Name: learning_communication
+Description: Description of learning_communication
+Version: 0.0.0
+Cflags: -I/home/liyike/catkin_ws/devel/include
+Libs: -L${prefix}/lib 
+Requires: 

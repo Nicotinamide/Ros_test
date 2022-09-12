@@ -1,0 +1,2 @@
+learning_communication:learning_tf:mrobot_description:my_test2:my_test_pkg
+-DCATKIN_DEVEL_PREFIX=/home/liyike/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/liyike/catkin_ws/install -G Unix Makefiles

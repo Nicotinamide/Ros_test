@@ -1,0 +1,8 @@
+prefix=/home/liyike/catkin_ws/devel
+
+Name: my_test2
+Description: Description of my_test2
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

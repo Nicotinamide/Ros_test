@@ -1,0 +1,7 @@
+set(learning_communication_SETUP_PY_SETUP_MODULE "distutils.core")
+set(learning_communication_SETUP_PY_VERSION "0.0.0")
+set(learning_communication_SETUP_PY_SCRIPTS "")
+set(learning_communication_SETUP_PY_PACKAGES "learning_communication")
+set(learning_communication_SETUP_PY_PACKAGE_DIRS "src/learning_communication")
+set(learning_communication_SETUP_PY_MODULES "")
+set(learning_communication_SETUP_PY_MODULE_DIRS "")
