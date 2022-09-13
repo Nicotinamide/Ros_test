@@ -1,5 +1,7 @@
 <launch>
     <node pkg="tf2_ros" type="static_transform_publisher" name="son1" args="2 0 0 0 0 0 /world /son1" output="screen"/>
-    <node pkg="tf2_ros" type="static_transform_publisher" name="son2" args="0 1 0 1.57 0 0 /world /son2" output="screen"/>
+    <node pkg="tf2_ros" type="static_transform_publisher" name="son2" args="0 1 0 1.57 0 1.57 /world /son2" output="screen"/>
+    <node pkg="tf2_ros" type="static_transform_publisher" name="test1" args="-1.00 -0.00 1.00 -0.79 -1.57 -0.79 /son2 /test1" output="screen"/>
+    <!--static_transform_publisher x y z yaw(z) pitch(y) roll(x) frame_id child_frame_id-->
 
 </launch>
