@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="mycar">
+    <xacro:include filename="$(find urdf_gazebo)/urdf/head.xacro"/>
+    <xacro:include filename="$(find urdf_gazebo)/urdf/demo_car_base.xacro"/>
+    <xacro:include filename="$(find urdf_gazebo)/urdf/demo_car_camera.xacro"/>
+    <xacro:include filename="$(find urdf_gazebo)/urdf/demo_car_laser.xacro"/>
+
+    <!-- 运动控制 -->
+    <xacro:include filename="$(find urdf_gazebo)/urdf/gazebo/move.xacro"/>
+    <!-- 雷达控制 -->
+    <xacro:include filename="$(find urdf_gazebo)/urdf/gazebo/laser.xacro"/>
+    <!-- 摄像头仿真 -->
+    <xacro:include filename="$(find urdf_gazebo)/urdf/gazebo/camera.xacro"/>
+    <!-- kinect -->
+    <xacro:include filename="$(find urdf_gazebo)/urdf/gazebo/kinect.xacro"/>
+</robot>

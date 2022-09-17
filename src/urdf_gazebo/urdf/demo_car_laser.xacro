@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="mycar">
+    <xacro:property name="stand_radius" value="0.01"/>
+    <xacro:property name="stand_length" value="0.15"/>
+    <xacro:property name="laser_radius" value="0.03"/>
+    <xacro:property name="laser_length" value="0.05"/>
+
+    <xacro:property name="joint_stand_x" value="0"/>
+    <xacro:property name="joint_stand_y" value="0"/>
+    <xacro:property name="joint_stand_z" value="${stand_length / 2 + baselink_length / 2}"/>
+
+    <xacro:property name="joint_laser_x" value="0"/>
+    <xacro:property name="joint_laser_y" value="0"/>
+    <xacro:property name="joint_laser_z" value="${stand_length / 2 + laser_length / 2}"/>
+
+    <xacro:property name="stand_mass" value="0.1"/>
+    <xacro:property name="laser_mass" value="0.15"/>
+    
+    
+    
+    
+    
+    
+    
+    <link name="laser_stand">
+        <visual>
+            <geometry>
+                <cylinder radius="${stand_radius}" length="${stand_length}"/>
+            </geometry>
+            <material name="red">
+                <color rgba="1.0 0.0 0.0 1.0"/>
+            </material>
+        </visual>
+
+        <collision>
+            <geometry>
+                <cylinder radius="${stand_radius}" length="${stand_length}"/>
+            </geometry>
+            <material name="red">
+                <color rgba="1.0 0.0 0.0 1.0"/>
+            </material>
+        </collision>
+        <xacro:cylinder_inertial_matrix m="${stand_mass}" r="${stand_radius}" h="${stand_length}"/>
+    </link>
+    <gazebo reference="laser_stand">
+            <material>Gazebo/Gray</material>
+    </gazebo>
+    <joint name="stand2base" type="fixed">
+        <origin xyz="${joint_stand_x} ${joint_stand_y} ${joint_stand_z}" rpy="0.0 0.0 0.0"/>
+        <parent link="base_link"/>
+        <child link="laser_stand"/>
+        <axis xyz="0.0 0.0 0.0"/>
+        <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
+    </joint>
+
+    <link name="laser">
+        <visual>
+            <geometry>
+                <cylinder radius="${laser_radius}" length="${laser_length}"/>
+            </geometry>
+            <material name="laser_color">
+                <color rgba="0.8 0.5 0.0 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder radius="${laser_radius}" length="${laser_length}"/>
+            </geometry>
+            <material name="laser_color">
+                <color rgba="0.8 0.5 0.0 1.0"/>
+            </material>
+        </collision>
+        <xacro:cylinder_inertial_matrix m="${laser_mass}" r="${laser_radius}" h="${laser_length}"/>
+    </link>
+    <gazebo reference="laser">
+            <material>Gazebo/Black</material>
+    </gazebo>
+    <joint name="laser2stand" type="fixed">
+        <origin xyz="${joint_laser_x} ${joint_laser_y} ${joint_laser_z}" rpy="0.0 0.0 0.0"/>
+        <parent link="laser_stand"/>
+        <child link="laser"/>
+        <axis xyz="0.0 0.0 0.0"/>
+        <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
+    </joint>
+
+    
+    
+</robot>
